@@ -1,102 +1,78 @@
-body{
-
-
+body {
     background-color: rgb(240, 226, 163);
 }
-
-
-
-
 
 .viewer {
     width: 1250px;
     height: 900px;
     border: 10px solid rgb(255, 255, 255);
     background-color: rgb(35, 167, 190);
-    
     position: relative;
     overflow: hidden;
-    
-    
 }
 
 .slide {
-    
     position: absolute;
     width: 1250px;
     height: 900px;
     top: 1300px;
     transition: 1.5s all;
-   
-
     align-items: center;
-    
 }
 
 .slide.show {
     top: 0px;
-    
-   
 }
 
 #slide-1 {
     background: rgb(255, 199, 199);
-
-   
 }
 
 #slide-2 {
     background: rgb(201, 255, 199);
-    
 }
 
 #slide-3 {
     background: rgb(214, 199, 255);
-    
 }
-#slide-4{
+
+#slide-4 {
     background: rgb(122, 202, 216);
-    
 }
+
 #slide-5 {
-    background:rgb(152, 235, 157);
-    
+    background: rgb(152, 235, 157);
 }
+
 #slide-6 {
     background: rgb(230, 144, 215);
-    
 }
+
 #slide-7 {
     background: rgb(228, 162, 118);
-    
 }
+
 #slide-8 {
     background: rgb(157, 171, 229);
-    
 }
+
 #slide-9 {
     background: rgb(199, 240, 123);
-    
 }
-#slide-10{
+
+#slide-10 {
     background: rgb(209, 136, 231);
-    
 }
 
-h1{
-
-margin: 5px;
-    font-family:'Gill Sans';
+h1 {
+    margin: 5px;
+    font-family: 'Gill Sans';
     font-size: 150px;
     text-align: center;
     color: rgb(35, 167, 190);
-
-
 }
 
-
-#button-1{
-
+#button-1 {
     font-family: 'Gill Sans';
     font-weight: bold;
     font-size: 20px;
@@ -106,14 +82,9 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(255, 199, 199);
-
-
-
 }
 
-
-#button-2{
-
+#button-2 {
     font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
@@ -124,12 +95,9 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(201, 255, 199);
-
 }
 
-
-#button-3{
-
+#button-3 {
     font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
@@ -140,11 +108,9 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(214, 199, 255);
-
 }
 
-#button-4{
-
+#button-4 {
     font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
@@ -155,11 +121,9 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(122, 202, 216);
-
 }
 
-#button-5{
-
+#button-5 {
     font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
@@ -170,11 +134,9 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(152, 235, 157);
-
 }
 
-#button-6{
-
+#button-6 {
     font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
@@ -185,12 +147,10 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(230, 144, 215);
-
 }
 
-#button-7{
-
-    font-family:'Gill Sans';
+#button-7 {
+    font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
     border: 2px;
@@ -200,11 +160,9 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(228, 162, 118);
-
 }
 
-#button-8{
-
+#button-8 {
     font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
@@ -215,12 +173,9 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(157, 171, 229);
-
 }
 
-
-#button-9{
-
+#button-9 {
     font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
@@ -231,12 +186,9 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(199, 240, 123);
-
 }
 
-
-#button-10{
-
+#button-10 {
     font-family: 'Gill Sans';
     font-size: 20px;
     font-weight: bold;
@@ -247,5 +199,4 @@ margin: 5px;
     align-items: center;
     padding: 2rem;
     background-color: rgb(209, 136, 231);
-
 }
