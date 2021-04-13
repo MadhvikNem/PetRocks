@@ -61,7 +61,7 @@ function showRocks() {
         console.log("rocks", rocks);
 
 
-        const buttons = rocks.map((rock, index) => {
+        const buttons = rocks.map((rocks, index) => {
             const button = document.createElement('button');
             button.classList.add('button');
             button.append(humanize(index));
