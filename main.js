@@ -50,98 +50,117 @@ function gotAllrocks(err) {
 
 function showRocks() {
 
+    rocks.forEach(rock => {
 
 
 
 
-    console.log("rocks", rocks);
-    const buttons = rocks.map((rock, index) => {
-        const button = document.createElement('button');
-        button.classList.add('button');
-        button.append(humanize(index));
 
-        button.addEventListener('click', () => {
-            // transition out other slides, then remove them
-            document.querySelectorAll('.slide').forEach((s) => {
-                s.classList.remove('show');
-                s.addEventListener('transitionend', (event) => {
-                    event.target.remove();
+
+
+        console.log("rocks", rocks);
+
+
+        const buttons = rocks.map((rock, index) => {
+            const button = document.createElement('button');
+            button.classList.add('button');
+            button.append(humanize(index));
+
+            button.addEventListener('click', () => {
+                // transition out other slides, then remove them
+                document.querySelectorAll('.slide').forEach((s) => {
+                    s.classList.remove('show');
+                    s.addEventListener('transitionend', (event) => {
+                        event.target.remove();
+                    });
                 });
+                const slide = document.createElement('div');
+                slide.classList.add('slide');
+                // create rocksContainer, petname, rocksTrait, and imgRocks. you've already done this
+
+
+
+
+                var rocksContainer = document.createElement("div");
+                rocksContainer.classList.add("rocks-container");
+
+
+
+
+
+
+                var Petname = document.createElement("h2")
+
+                Petname.classList.add("names");
+
+                Petname.innerText = rocks.fields.names;
+
+
+
+
+
+
+
+
+                var rocksTrait = document.createElement("h2")
+
+                rocksTrait.classList.add("trait");
+
+                rocksTrait.innerText = rocks.fields.trait;
+
+
+
+
+
+
+
+
+
+                var imgRocks = document.createElement("img")
+
+                imgRocks.classList.add("image");
+
+                imgRocks.src = rocks.fields.image[0].url;
+
+
+
+
+                // append everything
+                rocksContainer.append(Petname, rocksTrait, imgRocks);
+                slide.append(rocksContainer);
+                const viewer = document.querySelector('.viewer');
+                viewer.insertBefore(slide, viewer.firstChild).focus();
+                slide.classList.add('show');
             });
-            const slide = document.createElement('div');
-            slide.classList.add('slide');
-            // create rocksContainer, petname, rocksTrait, and imgRocks. you've already done this
 
 
 
 
-            var rocksContainer = document.createElement("div");
-            rocksContainer.classList.add("rocks-container");
-
-
-
-
-
-
-            var Petname = document.createElement("h2")
-
-            Petname.classList.add("names");
-
-            Petname.innerText = rocks.fields.names;
+            return button;
 
 
 
 
 
 
-
-
-            var rocksTrait = document.createElement("h2")
-
-            rocksTrait.classList.add("trait");
-
-            rocksTrait.innerText = rocks.fields.trait;
-
-
-
-
-
-
-
-
-
-            var imgRocks = document.createElement("img")
-
-            imgRocks.classList.add("image");
-
-            imgRocks.src = rocks.fields.image[0].url;
-
-
-
-
-            // append everything
-            rocksContainer.append(Petname, rocksTrait, imgRocks);
-            slide.append(rocksContainer);
-            const viewer = document.querySelector('.viewer');
-            viewer.insertBefore(slide, viewer.firstChild).focus();
-            slide.classList.add('show');
         });
 
 
-
-
-        return button;
-
+        document.querySelector('nav').append(...buttons);
 
 
 
 
 
-    });
 
-    document.querySelector('nav').append(...buttons);
 
+    })
 }
+
+
+
+
+
 
 
 
