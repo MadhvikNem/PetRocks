@@ -1,5 +1,3 @@
-
-
 /* globals require */
 console.log("Hello, Airtable");
 
@@ -40,56 +38,99 @@ function gotAllrocks(err) {
 
     // call function to show the rocks
     showRocks();
+
+
+
+
+
+
+
+
 }
 
 function showRocks() {
 
-    console.log("showRocks()");
-    rocks.forEach(rocks => {
-
-        console.log("rocks", rocks);
-
-
-        var rocksContainer = document.createElement("div");
-        rocksContainer.classList.add("rocks-container");
 
 
 
 
-        var Petname = document.createElement("h2")
+    console.log("rocks", rocks);
+    const buttons = rocks.map((rock, index) => {
+        const button = document.createElement('button');
+        button.classList.add('button');
+        button.append(humanize(index));
 
-        Petname.classList.add("names");
+        button.addEventListener('click', () => {
+            // transition out other slides, then remove them
+            document.querySelectorAll('.slide').forEach((s) => {
+                s.classList.remove('show');
+                s.addEventListener('transitionend', (event) => {
+                    event.target.remove();
+                });
+            });
+            const slide = document.createElement('div');
+            slide.classList.add('slide');
+            // create rocksContainer, petname, rocksTrait, and imgRocks. you've already done this
 
-        Petname.innerText = rocks.fields.names;
-
-        rocksContainer.append(Petname);
 
 
 
-
-        var rocksTrait = document.createElement("h2")
-
-        rocksTrait.classList.add("trait");
-
-        rocksTrait.innerText = rocks.fields.trait;
-
+            var rocksContainer = document.createElement("div");
+            rocksContainer.classList.add("rocks-container");
 
 
 
 
 
 
+            var Petname = document.createElement("h2")
 
+            Petname.classList.add("names");
 
-        var imgRocks = document.createElement("img")
-
-        imgRocks.classList.add("image");
-
-        imgRocks.src = rocks.fields.image[0].url;
-
+            Petname.innerText = rocks.fields.names;
 
 
 
+
+
+
+
+
+            var rocksTrait = document.createElement("h2")
+
+            rocksTrait.classList.add("trait");
+
+            rocksTrait.innerText = rocks.fields.trait;
+
+
+
+
+
+
+
+
+
+            var imgRocks = document.createElement("img")
+
+            imgRocks.classList.add("image");
+
+            imgRocks.src = rocks.fields.image[0].url;
+
+
+
+
+            // append everything
+            rocksContainer.append(Petname, rocksTrait, imgRocks);
+            slide.append(rocksContainer);
+            const viewer = document.querySelector('.viewer');
+            viewer.insertBefore(slide, viewer.firstChild).focus();
+            slide.classList.add('show');
+        });
+
+
+
+
+        return button;
 
 
 
@@ -98,6 +139,8 @@ function showRocks() {
 
     });
 
+    document.querySelector('nav').append(...buttons);
+
 }
 
 
@@ -108,126 +151,234 @@ function showRocks() {
 
 
 
+// function showRocks() {
+
+//     console.log("showRocks()");
+//     rocks.forEach((rocks, index => {
+
+
+
+
+//         
+
+
+//        
+
+//        
+
+
+
+
+//         var Petname = document.createElement("h2")
+
+//         Petname.classList.add("names");
+
+//         Petname.innerText = rocks.fields.names;
+
+//         rocksContainer.append(Petname);
+
+
+
+
+//         var rocksTrait = document.createElement("h2")
+
+//         rocksTrait.classList.add("trait");
+
+//         rocksTrait.innerText = rocks.fields.trait;
 
 
 
 
 
-const b1 = document.getElementById("button-1");
-b1.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
+
+
+
+
+//         var imgRocks = document.createElement("img")
+
+//         imgRocks.classList.add("image");
+
+//         imgRocks.src = rocks.fields.image[0].url;
+
+
+
+
+
+
+
+
+
+
+//     }));
+
+
+
+
+
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const b = document.getElementById("button");
+// b.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s = document.getElementById("slides");
+//     s.classList.add("show");
+
+// });
+
+// // this is not DRY!
+
+// const b2 = document.getElementById("button-2");
+// b2.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s2 = document.getElementById("slide-2");
+//     s2.classList.add("show");
+// });
+
+// const b3 = document.getElementById("button-3");
+// b3.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s3 = document.getElementById("slide-3");
+//     s3.classList.add("show");
+// });
+
+// const b4 = document.getElementById("button-4");
+// b4.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s4 = document.getElementById("slide-4");
+//     s4.classList.add("show");
+// });
+
+
+// const b5 = document.getElementById("button-5");
+// b5.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s5 = document.getElementById("slide-5");
+//     s5.classList.add("show");
+// });
+
+
+// const b6 = document.getElementById("button-6");
+// b6.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s6 = document.getElementById("slide-6");
+//     s6.classList.add("show");
+// });
+
+
+
+// const b7 = document.getElementById("button-7");
+// b7.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s7 = document.getElementById("slide-7");
+//     s7.classList.add("show");
+// });
+
+// const b8 = document.getElementById("button-8");
+// b8.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s8 = document.getElementById("slide-8");
+//     s8.classList.add("show");
+// });
+
+
+// const b9 = document.getElementById("button-9");
+// b9.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s9 = document.getElementById("slide-9");
+//     s9.classList.add("show");
+// });
+
+
+// const b10 = document.getElementById("button-10");
+// b8.addEventListener("click", () => {
+//     slides = document.getElementsByClassName("slide");
+//     for (s of slides) {
+//         s.classList.remove("show");
+//     }
+//     const s10 = document.getElementById("slide-10");
+//     s10.classList.add("show");
+// });
+
+
+
+
+function humanize(num) {
+    var ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
+        'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
+        'seventeen', 'eighteen', 'nineteen'
+    ];
+    var tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty',
+        'ninety'
+    ];
+
+    var numString = num.toString();
+
+    if (num < 0) throw new Error('Negative numbers are not supported.');
+
+    if (num === 0) return 'zero';
+
+    //the case of 1 - 20
+    if (num < 20) {
+        return ones[num];
     }
-    const s1 = document.getElementById("slide-1");
-    s1.classList.add("show");
 
-});
-
-// this is not DRY!
-
-const b2 = document.getElementById("button-2");
-b2.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
+    if (numString.length === 2) {
+        return tens[numString[0]] + ' ' + ones[numString[1]];
     }
-    const s2 = document.getElementById("slide-2");
-    s2.classList.add("show");
-});
 
-const b3 = document.getElementById("button-3");
-b3.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
+    //100 and more
+    if (numString.length == 3) {
+        if (numString[1] === '0' && numString[2] === '0')
+            return ones[numString[0]] + ' hundred';
+        else
+            return ones[numString[0]] + ' hundred and ' + convert(+(numString[1] + numString[2]));
     }
-    const s3 = document.getElementById("slide-3");
-    s3.classList.add("show");
-});
 
-const b4 = document.getElementById("button-4");
-b4.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
+    if (numString.length === 4) {
+        var end = +(numString[1] + numString[2] + numString[3]);
+        if (end === 0) return ones[numString[0]] + ' thousand';
+        if (end < 100) return ones[numString[0]] + ' thousand and ' + convert(end);
+        return ones[numString[0]] + ' thousand ' + convert(end);
     }
-    const s4 = document.getElementById("slide-4");
-    s4.classList.add("show");
-});
-
-
-const b5 = document.getElementById("button-5");
-b5.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
-    }
-    const s5 = document.getElementById("slide-5");
-    s5.classList.add("show");
-});
-
-
-const b6 = document.getElementById("button-6");
-b6.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
-    }
-    const s6 = document.getElementById("slide-6");
-    s6.classList.add("show");
-});
-
-
-
-const b7 = document.getElementById("button-7");
-b7.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
-    }
-    const s7 = document.getElementById("slide-7");
-    s7.classList.add("show");
-});
-
-const b8 = document.getElementById("button-8");
-b8.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
-    }
-    const s8 = document.getElementById("slide-8");
-    s8.classList.add("show");
-});
-
-
-const b9 = document.getElementById("button-9");
-b9.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
-    }
-    const s9 = document.getElementById("slide-9");
-    s9.classList.add("show");
-});
-
-
-const b10 = document.getElementById("button-10");
-b8.addEventListener("click", () => {
-    slides = document.getElementsByClassName("slide");
-    for (s of slides) {
-        s.classList.remove("show");
-    }
-    const s10 = document.getElementById("slide-10");
-    s10.classList.add("show");
-});
-
-
-
-
-
-
-
-
-
-
+}
